@@ -1,6 +1,5 @@
 package me.cpiqueras.rpsgame.model
 
-import com.fasterxml.jackson.annotation.JsonIgnore
 import jakarta.validation.constraints.Email
 import jakarta.validation.constraints.NotBlank
 import jakarta.validation.constraints.Size
@@ -27,7 +26,6 @@ class User(
 
     @NotBlank
     @Size(max = 120)
-    @JsonIgnore
     var password: String,
 
     @Column(name = "created_at", nullable = false, updatable = false)
