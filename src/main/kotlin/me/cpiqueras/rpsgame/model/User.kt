@@ -13,19 +13,19 @@ class User(
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     val id: Long = 0,
 
-    @NotBlank
-    @Size(max = 20)
+    @NotBlank(message = "Username is required")
+    @Size(max = 20, message = "Username must not exceed 20 characters")
     @Column(nullable = false, unique = true)
     val username: String,
 
-    @NotBlank
-    @Size(max = 50)
-    @Email
+    @NotBlank(message = "Email is required")
+    @Size(max = 50, message = "Email must not exceed 50 characters")
+    @Email(message = "Email should be valid")
     @Column(nullable = false, unique = true)
     val email: String,
 
-    @NotBlank
-    @Size(max = 120)
+    @NotBlank(message = "Password is required")
+    @Size(min = 8, message = "Password must be at least 8 characters")
     var password: String,
 
     @Column(name = "created_at", nullable = false, updatable = false)

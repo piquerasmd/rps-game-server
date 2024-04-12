@@ -9,10 +9,6 @@ import org.springframework.web.bind.annotation.*
 @RequestMapping("/api/users")
 class UserController(private val userService: UserService) {
 
-    @PostMapping
-    fun createUser(@RequestBody user: User): ResponseEntity<User> =
-        ResponseEntity.ok(userService.saveUser(user))
-
     @GetMapping("/username/{username}")
     fun getUserByUsername(@PathVariable username: String): ResponseEntity<User> =
         userService.getUserByUsername(username)?.let { ResponseEntity.ok(it) } ?: ResponseEntity.notFound().build()
