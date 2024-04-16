@@ -17,4 +17,9 @@ class GlobalExceptionHandler{
 
         return ResponseEntity.badRequest().body(errors)
     }
+
+    @ExceptionHandler
+    fun handleIllegalArgumentException(ex: IllegalArgumentException): ResponseEntity<String> {
+        return ResponseEntity.badRequest().body(ex.message)
+    }
 }
