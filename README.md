@@ -7,14 +7,14 @@ A simple, engaging web application for the classic rock-paper-scissors game
 [Docker image for Microsoft SQL Server 2022](https://learn.microsoft.com/es-es/sql/linux/quickstart-install-connect-docker?view=sql-server-ver16&tabs=cli&pivots=cs1-cmd)
 
 
-### Crear la imagen de docker de SQL Server 2022
+### Create a Docker Image for SQL Server 2022
 
-Traer la imagen de docker de SQL Server 2022, ejecutar el siguiente comando:
+To pull the Docker image for SQL Server 2022, execute the following command:
 ```bash
 docker pull mcr.microsoft.com/mssql/server:2022-latest
 ```
 
-Para crear la imagen de docker de SQL Server 2022, ejecutar el siguiente comando:
+To create a Docker image for SQL Server 2022, execute the following command:
 ```bash 
 docker run -e "ACCEPT_EULA=Y" \
 -e "MSSQL_SA_PASSWORD=yourStrong<<#><Password" \
