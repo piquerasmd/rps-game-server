@@ -23,7 +23,6 @@ class GameRepositoryTest @Autowired constructor(
             username = "testUser",
             email = "testUser@test.com",
             password = "testPassword",
-            createdAt = LocalDateTime.now()
         )
         val game = Game(
             user = user,
@@ -39,5 +38,35 @@ class GameRepositoryTest @Autowired constructor(
 
         assertTrue(foundGame.isPresent)
         assertEquals(game.result, foundGame.get().result)
+    }
+
+    @Test
+    fun `When findByUserId then return List of Games`() {
+        val user = User(
+            username = "testUser",
+            email = "testUser@test.com",
+            password = "testPassword",
+        )
+        val game1 = Game(
+            user = user,
+            userChoice = Choice.ROCK,
+            computerChoice = Choice.PAPER,
+            result = Result.LOSE
+        )
+        val game2 = Game(
+            user = user,
+            userChoice = Choice.ROCK,
+            computerChoice = Choice.PAPER,
+            result = Result.LOSE
+        )
+        entityManager.persist(user)
+        entityManager.persist(game1)
+        entityManager.persist(game2)
+        entityManager.flush()
+
+        val foundGames = gameRepository.findByUserId(user.id)
+
+        assertEquals(2, foundGames.size)
+        assertTrue(foundGames.containsAll(listOf(game1, game2)))
     }
 }
