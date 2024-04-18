@@ -1,21 +1,54 @@
-# rps-game-server
-A simple, engaging web application for the classic rock-paper-scissors game
+# Rock-Paper-Scissors Game Server
 
+This is a server-side application for the classic Rock-Paper-Scissors game. It's built with Kotlin (version 1.9.23), Java (version 21), Spring Boot (version 3.2.4), and Maven.
 
-## mysql 
+## Getting Started
 
-[Docker image for Microsoft SQL Server 2022](https://learn.microsoft.com/es-es/sql/linux/quickstart-install-connect-docker?view=sql-server-ver16&tabs=cli&pivots=cs1-cmd)
+These instructions will get you a copy of the project up and running on your local machine for development and testing purposes.
 
+### Installing
 
-### Create a Docker Image for SQL Server 2022
+1. Clone the repository
 
-To pull the Docker image for SQL Server 2022, execute the following command:
+```bash
+git clone https://github.com/piquerasmd/rps-game-server.git
+```
+
+2. Navigate into the project directory
+
+```bash
+cd rps-game-server
+```
+
+3. Build the project with Maven
+
+```bash
+mvn clean install
+```
+
+4. Run the application
+
+```bash
+mvn spring-boot:run
+```
+
+## Running the tests
+
+To run the unit tests, use the following command:
+
+```bash
+mvn test
+```
+
+## Database
+
+This project uses Microsoft SQL Server 2022. You can pull the Docker image and create a Docker container using the following commands:
+
 ```bash
 docker pull mcr.microsoft.com/mssql/server:2022-latest
 ```
 
-To create a Docker image for SQL Server 2022, execute the following command:
-```bash 
+```bash
 docker run -e "ACCEPT_EULA=Y" \
 -e "MSSQL_SA_PASSWORD=yourStrong<<#><Password" \
 -e "MSSQL_PID=Evaluation" \
@@ -25,3 +58,9 @@ docker run -e "ACCEPT_EULA=Y" \
 -d mcr.microsoft.com/mssql/server:2022-latest
 ```
 
+## Built With
+
+- [Kotlin](https://kotlinlang.org/)
+- [Java](https://www.java.com/)
+- [Spring Boot](https://spring.io/projects/spring-boot)
+- [Maven](https://maven.apache.org/)
